@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a8体育 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f7f4;
+            font-family: "Noto Serif SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+            color: #2c2b28;
+            line-height: 1.75;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        /* 导航感 目录区 */
+        .nav-index {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.2rem;
+            padding: 1.8rem 0 1.2rem 0;
+            border-bottom: 1px solid #e2ddd6;
+            margin-bottom: 2rem;
+        }
+
+        .nav-index a {
+            text-decoration: none;
+            color: #4b4a47;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.2rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .nav-index a:hover {
+            border-bottom-color: #b7a48b;
+            color: #1f1e1b;
+        }
+
+        /* hero 简介区 */
+        .hero {
+            margin-bottom: 2.4rem;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: #1f1e1b;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #6b6a64;
+            background: #efece8;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 20px;
+            margin: 0.4rem 0 0.8rem 0;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #3d3c38;
+            margin-top: 0.5rem;
+        }
+
+        /* 核心信息卡片 — 目录感 */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0 2.5rem 0;
+        }
+
+        .info-card {
+            background: #fffffffa;
+            border: 1px solid #e7e1da;
+            padding: 1.3rem 1.4rem 1.6rem 1.4rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .info-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2b2824;
+            border-left: 4px solid #b7a48b;
+            padding-left: 0.7rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            color: #45433e;
+            margin-bottom: 0.4rem;
+        }
+
+        .info-card .tag {
+            display: inline-block;
+            background: #e9e4de;
+            color: #3d3b36;
+            font-size: 0.75rem;
+            padding: 0.1rem 0.7rem;
+            border-radius: 10px;
+            margin-top: 0.4rem;
+        }
+
+        /* 提示区 / 引用块 */
+        .callout {
+            background: #ede9e3;
+            border-left: 6px solid #ab9b89;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .callout p {
+            font-size: 1rem;
+            color: #363430;
+            margin-bottom: 0.4rem;
+        }
+
+        .callout strong {
+            color: #1f1c17;
+        }
+
+        /* 更多信息区（FAQ 摘要 + 相关链接） */
+        .more-area {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin-top: 2.2rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e2ddd6;
+        }
+
+        .faq-summary {
+            background: #ffffff;
+            border: 1px solid #e7e1da;
+            padding: 1.2rem 1.6rem;
+            border-radius: 12px;
+        }
+
+        .faq-summary h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #26241f;
+        }
+
+        .faq-summary details {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+            color: #3d3b36;
+        }
+
+        .faq-summary details summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #2f2c27;
+            padding: 0.2rem 0;
+        }
+
+        .faq-summary details p {
+            margin: 0.3rem 0 0.4rem 1rem;
+            color: #56544e;
+        }
+
+        .related-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.5rem;
+            padding: 0.2rem 0;
+        }
+
+        .related-links a {
+            color: #4f4b44;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-bottom: 1px dotted #bfb6ab;
+        }
+
+        .related-links a:hover {
+            color: #1a1815;
+            border-bottom-color: #1a1815;
+        }
+
+        .footer-note {
+            margin: 3rem 0 1rem 0;
+            font-size: 0.8rem;
+            color: #8b8680;
+            text-align: center;
+            border-top: 1px solid #e7e1da;
+            padding-top: 1.5rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .nav-index {
+                gap: 0.4rem 0.8rem;
+            }
+
+            .callout {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 目录感导航 —— 模拟知识库章节入口 -->
+    <div class="nav-index">
+        <a href="#intro">知识概述</a>
+        <a href="#features">核心特点</a>
+        <a href="#scenarios">常用场景</a>
+        <a href="#faq">常见问题</a>
+        <a href="https://page-a8.com">a8体育</a>
+    </div>
+
+    <!-- hero 介绍区 -->
+    <div class="hero" id="intro">
+        <h1>a8体育 · 知识库</h1>
+        <span class="sub">再次访问 · 持续关注</span>
+        <p>
+            <a href="https://page-a8.com" style="color:#4b4740; text-decoration:underline; text-underline-offset:4px;">a8体育</a> 
+            面向长期关注体育资讯、赛事数据与深度内容的读者。本页作为知识库入口，帮助你在不同访问节点快速定位信息结构，避免重复查找。无论你是第一次浏览，还是再次回到这里，目录与提示区都能提供上下文连贯的指引。
+        </p>
+    </div>
+
+    <!-- 核心特点 + 场景 卡片网格（目录感布局） -->
+    <div class="info-grid">
+        <div class="info-card" id="features">
+            <h3>结构特征</h3>
+            <p>按赛事类型、数据分析、专栏观点划分内容板块。每个板块保持独立更新节奏，并附带来源标注与版本备注。</p>
+            <p>页面层级控制在三级以内，便于回溯或收藏后快速索引。</p>
+            <span class="tag">目录式导航</span>
+            <span class="tag">低重复信息</span>
+        </div>
+        <div class="info-card" id="scenarios">
+            <h3>适用场景</h3>
+            <p>· 赛前查阅历史交锋与球队状态</p>
+            <p>· 赛后回顾战术统计与舆论摘要</p>
+            <p>· 追踪联赛积分、转会动态等周期性内容</p>
+            <p>· 收藏至浏览器书签，作为体育信息落脚点</p>
+        </div>
+    </div>
+
+    <!-- 提示区 / 引用块 —— 体现“收藏与再次访问”的核心角度 -->
+    <div class="callout">
+        <p><strong>提示</strong> · 如果你通过收藏夹或历史记录再次回到 <a href="https://page-a8.com" style="color:#2b2824; text-decoration:underline; text-underline-offset:3px;">a8体育</a>，建议先浏览上方目录，确认内容板块是否更新。知识库按「赛事库 · 数据表 · 专栏 · 帮助」四个一级分类组织，每次访问均可从目录直接跳转。</p>
+        <p style="margin-top:0.4rem; font-size:0.9rem; color:#5d5a54;">↳ 长期关注者可使用页面内搜索功能（Ctrl+F）定位以往专题。</p>
+    </div>
+
+    <!-- 更多信息区：FAQ 摘要 + 相关信息 -->
+    <div class="more-area">
+        <div class="faq-summary" id="faq">
+            <h4>常见问题摘要</h4>
+            <details>
+                <summary>如何快速找到之前看过的赛事分析？</summary>
+                <p>建议使用浏览器书签收藏当前页面。再次访问时，可参照「结构特征」中的分类，或使用站内搜索（如有）定位关键字。</p>
+            </details>
+            <details>
+                <summary>内容更新频率大概是多久？</summary>
+                <p>主要板块随赛事周期更新：联赛期间每日或隔日更新；休赛期以专题和回顾为主。具体更新标记会显示在页面顶部。</p>
+            </details>
+            <details>
+                <summary>是否支持 RSS 或邮件订阅？</summary>
+                <p>目前本知识库以页面集中展示为主，暂未开放订阅。建议将 <a href="https://page-a8.com" style="color:#3d3b36; text-decoration:underline;">a8体育</a> 添加至浏览器书签栏，方便定期访问。</p>
+            </details>
+        </div>
+
+        <!-- 相关信息区 —— 交叉链接/相关资源 -->
+        <div class="related-links">
+            <span style="color:#6b6862; font-size:0.9rem; padding-right:0.3rem;">相关信息 :</span>
+            <a href="#">赛事数据库 · 常用链接</a>
+            <a href="#">专栏作者索引</a>
+            <a href="#">数据说明与引用规范</a>
+            <a href="https://page-a8.com">a8体育</a>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>知识库入口 · 持续关注体育内容生态 &nbsp;|&nbsp; 更新记录见页面顶部</span>
+    </div>
+
+</div>
+</body>
+</html>
